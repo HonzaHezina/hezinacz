@@ -1,71 +1,173 @@
 <?php
+/**
+ * Kontaktní formulář s podporou PHPMailer pro Wedos hosting
+ * 
+ * Tento skript používá PHPMailer knihovnu pro spolehlivé odesílání emailů
+ * přes SMTP server s autentizací.
+ */
+
+// Načtení PHPMailer knihovny
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require 'lib/PHPMailer/Exception.php';
+require 'lib/PHPMailer/PHPMailer.php';
+require 'lib/PHPMailer/SMTP.php';
+
+// Načtení konfigurace
+require 'email_config.php';
+
 // Kontrola, zda byl formulář odeslán
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    // Získání hodnot z formuláře
-    $name = trim($_POST['name']);
-    $email = trim($_POST['email']);
-    $message = trim($_POST['message']);
-    $custom_subject = isset($_POST['subject']) ? trim($_POST['subject']) : '';
-
-    // Konfigurace emailu
-    $recipient = 'hezina@gmail.com'; // Změňte na svou emailovou adresu
-    $smtp_server = 'wes1-smtp.wedos.net';
-    $sender_email = 'info@coumis.cz'; // Musí být z vaší domény na Wedos
+    // Získání hodnot z formuláře a sanitizace
+    $name = htmlspecialchars(trim($_POST['name'] ?? ''));
+    $email = trim($_POST['email'] ?? '');
+    $message = htmlspecialchars(trim($_POST['message'] ?? ''));
+    $custom_subject = htmlspecialchars(trim($_POST['subject'] ?? ''));
 
     // Kontrola povinných polí
     if (empty($name) || empty($email) || empty($message)) {
-        header("Location: index.html?status=error&msg=Všechna povinná pole musí být vyplněna.");
+        header("Location: index.html?status=error&msg=" . urlencode("Všechna povinná pole musí být vyplněna."));
         exit;
     }
 
     // Validace emailové adresy
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        header("Location: index.html?status=error&msg=Neplatná emailová adresa.");
+        header("Location: index.html?status=error&msg=" . urlencode("Neplatná emailová adresa."));
+        exit;
+    }
+
+    // Kontrola, zda je SMTP heslo nastaveno
+    if (empty(SMTP_PASSWORD)) {
+        error_log("CHYBA: SMTP heslo není nastaveno v email_config.php");
+        header("Location: index.html?status=error&msg=" . urlencode("Emailový server není správně nakonfigurován. Kontaktujte správce webu."));
         exit;
     }
 
     // Nastavení předmětu
     $subject = !empty($custom_subject) ? $custom_subject : "Zpráva z kontaktního formuláře";
 
-    // OPRAVENÉ HLAVIČKY - přidán Return-Path a From s doménovou adresou
-    $headers = "From: Kontaktní formulář <$sender_email>" . "\r\n";
-    $headers .= "Return-Path: $sender_email" . "\r\n";
-    $headers .= "Reply-To: $name <$email>" . "\r\n";
-    $headers .= "MIME-Version: 1.0" . "\r\n";
-    $headers .= "Content-Type: text/html; charset=UTF-8" . "\r\n";
-    $headers .= "X-Mailer: PHP/" . phpversion() . "\r\n";
-
-    // Tělo e-mailu
-    $email_content = "<html><body>";
-    $email_content .= "<h2>Nová zpráva z kontaktního formuláře</h2>";
-    $email_content .= "<p><strong>Jméno:</strong> $name</p>";
-
+    // Vytvoření těla emailu
+    $email_content = "
+    <html>
+    <head>
+        <meta charset='UTF-8'>
+        <style>
+            body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+            .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+            .header { background: linear-gradient(135deg, #6C63FF, #FF57B9); color: white; padding: 20px; border-radius: 5px 5px 0 0; }
+            .content { background: #f9f9f9; padding: 20px; border: 1px solid #ddd; }
+            .field { margin-bottom: 15px; }
+            .label { font-weight: bold; color: #6C63FF; }
+            .footer { background: #333; color: white; padding: 10px; text-align: center; font-size: 12px; border-radius: 0 0 5px 5px; }
+        </style>
+    </head>
+    <body>
+        <div class='container'>
+            <div class='header'>
+                <h2>Nová zpráva z kontaktního formuláře</h2>
+            </div>
+            <div class='content'>
+                <div class='field'>
+                    <span class='label'>Jméno:</span><br>
+                    $name
+                </div>";
+    
     if (!empty($custom_subject)) {
-        $email_content .= "<p><strong>Předmět:</strong> $custom_subject</p>";
+        $email_content .= "
+                <div class='field'>
+                    <span class='label'>Předmět:</span><br>
+                    $custom_subject
+                </div>";
     }
+    
+    $email_content .= "
+                <div class='field'>
+                    <span class='label'>E-mail:</span><br>
+                    <a href='mailto:$email'>$email</a>
+                </div>
+                <div class='field'>
+                    <span class='label'>Zpráva:</span><br>
+                    " . nl2br($message) . "
+                </div>
+            </div>
+            <div class='footer'>
+                <p>Tato zpráva byla odeslána z kontaktního formuláře na webu hezina.cz</p>
+                <p>Datum: " . date('d.m.Y H:i:s') . "</p>
+            </div>
+        </div>
+    </body>
+    </html>";
 
-    $email_content .= "<p><strong>E-mail:</strong> $email</p>";
-    $email_content .= "<p><strong>Zpráva:</strong></p>";
-    $email_content .= "<p>" . nl2br($message) . "</p>";
-    $email_content .= "<hr>";
-    $email_content .= "<p><em>Tato zpráva byla odeslána z kontaktního formuláře na vašich osobních stránkách.</em></p>";
-    $email_content .= "</body></html>";
+    try {
+        // Vytvoření PHPMailer instance
+        $mail = new PHPMailer(true);
 
-    // OPRAVENÉ SMTP nastavení pro Wedos
-    ini_set('SMTP', $smtp_server);
-    ini_set('smtp_port', 587);
-    ini_set('sendmail_from', $sender_email);
+        // Nastavení SMTP
+        $mail->isSMTP();
+        $mail->Host = SMTP_HOST;
+        $mail->SMTPAuth = true;
+        $mail->Username = SMTP_USERNAME;
+        $mail->Password = SMTP_PASSWORD;
+        $mail->SMTPSecure = SMTP_ENCRYPTION;
+        $mail->Port = SMTP_PORT;
+        $mail->CharSet = 'UTF-8';
 
-    // Odeslání e-mailu s dodatečným parametrem -f pro return-path
-    $success = mail($recipient, $subject, $email_content, $headers, "-f $sender_email");
+        // Debug режим (pouze pokud je zapnutý)
+        if (EMAIL_DEBUG) {
+            $mail->SMTPDebug = 2;
+            $mail->Debugoutput = function($str, $level) {
+                error_log("PHPMailer debug: $str");
+            };
+        }
 
-    // Přesměrování na děkovnou stránku nebo zpět na formulář v případě chyby
-    if ($success) {
+        // Odesílatel
+        $mail->setFrom(EMAIL_FROM, EMAIL_FROM_NAME);
+        $mail->addReplyTo($email, $name);
+
+        // Příjemce
+        $mail->addAddress(EMAIL_TO);
+
+        // Obsah emailu
+        $mail->isHTML(true);
+        $mail->Subject = $subject;
+        $mail->Body = $email_content;
+        
+        // Alternativní textová verze pro klienty bez HTML
+        $mail->AltBody = "Nová zpráva z kontaktního formuláře\n\n" .
+                        "Jméno: $name\n" .
+                        ($custom_subject ? "Předmět: $custom_subject\n" : "") .
+                        "E-mail: $email\n\n" .
+                        "Zpráva:\n$message\n\n" .
+                        "---\n" .
+                        "Tato zpráva byla odeslána z kontaktního formuláře na webu hezina.cz\n" .
+                        "Datum: " . date('d.m.Y H:i:s');
+
+        // Odeslání emailu
+        $mail->send();
+        
+        // Úspěšné odeslání - přesměrování
         header("Location: dekujeme.html");
-    } else {
-        header("Location: index.html?status=error&msg=Při odesílání zprávy došlo k chybě. Zkuste to prosím znovu.");
+        exit;
+
+    } catch (Exception $e) {
+        // Chyba při odesílání - logování a přesměrování
+        error_log("Chyba při odesílání emailu: {$mail->ErrorInfo}");
+        
+        $error_msg = "Při odesílání zprávy došlo k chybě.";
+        if (EMAIL_DEBUG) {
+            $error_msg .= " Detail: " . $mail->ErrorInfo;
+        } else {
+            $error_msg .= " Zkuste to prosím znovu později.";
+        }
+        
+        header("Location: index.html?status=error&msg=" . urlencode($error_msg));
+        exit;
     }
+} else {
+    // Přímý přístup bez POST - přesměrování
+    header("Location: index.html");
     exit;
 }
 ?>

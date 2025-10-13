@@ -50,14 +50,44 @@ Pro úpravu stránky je možné:
 
 ## Odesílání e-mailů
 
-Kontaktní formulář je napojen na PHP skript `contact.php`, který odesílá e-maily prostřednictvím SMTP serveru na hostingu wedos.cz pod doménou comumis.cz. E-maily jsou zasílány na adresu `hezina@gmail.com`.
+Kontaktní formulář používá **PHPMailer** knihovnu pro spolehlivé odesílání emailů přes SMTP server s autentizací.
+
+### Konfigurace SMTP pro Wedos
+
+1. Otevřete soubor `email_config.php`
+2. Doplňte SMTP heslo do `SMTP_PASSWORD` (heslo k emailové schránce info@hezina.cz)
+3. Případně upravte další parametry (email příjemce, SMTP server, atd.)
+
+```php
+define('SMTP_USERNAME', 'info@hezina.cz'); // Emailová adresa z vaší domény
+define('SMTP_PASSWORD', 'vase-heslo-zde'); // DOPLŇTE HESLO!
+define('EMAIL_TO', 'hezina@gmail.com'); // Příjemce zpráv
+```
+
+### Wedos SMTP nastavení
+
+- **SMTP Server**: smtp.wedos.com
+- **Port**: 587 (TLS) nebo 465 (SSL)
+- **Autentizace**: Ano (uživatelské jméno a heslo k emailové schránce)
+- **Odesílatel**: Musí být emailová adresa z vaší domény na Wedos
+
+### Řešení problémů
+
+- Pokud emaily nefungují, zkontrolujte, zda je správně nastaveno heslo v `email_config.php`
+- Ujistěte se, že emailová adresa v `SMTP_USERNAME` existuje na vašem hostingu
+- Zkontrolujte, zda má email na Wedos zapnuté SMTP odesílání
+- Pro debug nastavte `EMAIL_DEBUG` na `true` v `email_config.php` a zkontrolujte server logy
 
 ## Nasazení
 
-1. Nahrajte všechny soubory na váš webhosting na wedos.cz / comumis.cz
-2. Ujistěte se, že PHP na serveru funguje správně
-3. Případně upravte v souboru `contact.php` e-mailovou adresu příjemce
-4. Otestujte funkčnost kontaktního formuláře
+1. Nahrajte všechny soubory na váš webhosting na wedos.cz
+2. Ujistěte se, že PHP na serveru funguje správně (PHP 7.0 nebo novější)
+3. **DŮLEŽITÉ**: Vytvořte emailovou schránku `info@hezina.cz` na Wedos hostingu (pokud ještě neexistuje)
+4. Upravte soubor `email_config.php`:
+   - Doplňte heslo k emailové schránce do `SMTP_PASSWORD`
+   - Případně upravte příjemce v `EMAIL_TO`
+5. Zkontrolujte, že složka `lib/PHPMailer/` je nahrána se všemi soubory
+6. Otestujte funkčnost kontaktního formuláře odesláním testovací zprávy
 
 ## Budoucí vylepšení
 
@@ -65,6 +95,47 @@ Kontaktní formulář je napojen na PHP skript `contact.php`, který odesílá e
 - Implementace vlastního backendu pro kontaktní formulář
 - Přidání sekce s recenzemi klientů
 - Integrování vlastních fotografií
+
+## Doporučené další úpravy webu
+
+### Bezpečnost
+- ✅ **HOTOVO**: Implementace PHPMailer pro bezpečné odesílání emailů
+- Přidání CAPTCHA (např. Google reCAPTCHA) pro ochranu před spamem
+- Implementace rate limitingu pro prevenci zneužití formuláře
+- HTTPS certifikát (SSL) - ověřte, že je aktivní na Wedos
+
+### SEO a Marketing
+- Přidání meta tagů pro sociální sítě (Open Graph, Twitter Cards)
+- Implementace Google Analytics nebo jiného nástroje pro sledování návštěvnosti
+- Přidání strukturovaných dat (Schema.org) pro lepší viditelnost ve vyhledávačích
+- Sitemap.xml pro lepší indexaci
+- robots.txt pro správné řízení crawlerů
+
+### Obsah
+- Přidání konkrétních case studies nebo příkladů projektů
+- Blog nebo sekce s články o AI
+- Video představení nebo tutoriály
+- Sekce s FAQ (často kladené otázky)
+- Testimonials/recenze od klientů
+
+### Funkčnost
+- Newsletter formulář pro pravidelnou komunikaci
+- Kalendář pro rezervaci konzultací (integrace s Calendly nebo podobným)
+- Multi-jazyčná podpora (CZ/EN)
+- Možnost stažení portfolia nebo prezentace v PDF
+- Chat widget pro rychlou komunikaci
+
+### Výkon
+- Optimalizace obrázků (kompress, lazy loading)
+- Minifikace CSS a JavaScript souborů
+- Implementace cache mechanismu
+- CDN pro rychlejší načítání statických souborů
+
+### Design
+- Přidání tmavého/světlého režimu (theme switcher)
+- Animace při scrollování (smooth scroll, fade-in efekty)
+- Micro-interakce pro lepší UX
+- Mobilní optimalizace kontaktního formuláře
 
 ---
 
