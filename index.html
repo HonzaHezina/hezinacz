@@ -1,315 +1,126 @@
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jan Hezina | AI Expert & Mentor</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Jan Hezina – AI konzultace, piloty pro firmy, kurzy a projekt janAGI.">
+  <title>Jan Hezina | AI konzultace, piloty a kurzy</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav>
-        <a href="#" class="logo">Jan Hezina</a>
-        <div class="nav-links">
-            <a href="#about">O mně</a>
-            <a href="#services">Kurzy</a>
-            <a href="#tools">Nástroje</a>
-            <a href="#contact">Kontakt</a>
-        </div>
-        <a href="#contact" class="cta-button">Spolupracujme</a>
-        <div class="menu-toggle">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
+  <header class="site-header">
+    <nav class="nav container">
+      <a href="#" class="brand">Jan Hezina</a>
+      <button class="menu-toggle" aria-label="Otevřít menu" aria-expanded="false">☰</button>
+      <div class="nav-links" id="navLinks">
+        <a href="#sluzby">Služby</a>
+        <a href="#spoluprace">Jak spolupráce probíhá</a>
+        <a href="#projekty">Projekty</a>
+        <a href="#nastroje">Nástroje</a>
+        <a href="#kontakt" class="btn btn-small">Kontakt</a>
+      </div>
     </nav>
-    
-    <!-- Mobile Navigation -->
-    <div class="mobile-nav">
-        <a href="#" class="mobile-link">Domů</a>
-        <a href="#about" class="mobile-link">O mně</a>
-        <a href="#services" class="mobile-link">Kurzy</a>
-        <a href="#tools" class="mobile-link">Nástroje</a>
-        <a href="#contact" class="mobile-link">Kontakt</a>
-        <a href="#contact" class="cta-button">Spolupracujme</a>
+  </header>
+
+  <main>
+    <section class="hero container" id="hero">
+      <p class="eyebrow">AI expert · mentor · delivery partner</p>
+      <h1>Pomáhám firmám zavádět AI do reálných procesů.</h1>
+      <p class="lead">Řízeně, auditovatelně a bez vendor lock-inu. Pro rychlé piloty stavím vrstvenou orchestraci (n8n + OpenClaw + konektory) pod značkou janAGI.</p>
+      <div class="hero-ctas">
+        <a class="btn" href="#kontakt">Pilot pro firmu</a>
+        <a class="btn btn-secondary" href="#sluzby">Vzdělávání a kurzy</a>
+        <a class="link-cta" href="https://janagi.org" target="_blank" rel="noopener">janAGI (open-source projekt) ↗</a>
+      </div>
+    </section>
+
+    <section class="section container" id="sluzby">
+      <h2>Dvě hlavní cesty spolupráce</h2>
+      <div class="grid two">
+        <article class="card">
+          <h3>Konzultace a pilot pro firmu</h3>
+          <p>Najdeme konkrétní proces, nastavíme měřitelné cíle a dodáme funkční pilot, který má reálný dopad na výkon týmu.</p>
+          <ul>
+            <li>AI workflow pro interní procesy</li>
+            <li>Bezpečnost, governance, audit</li>
+            <li>Rychlé nasazení bez velké IT změny</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Vzdělávání a kurzy</h3>
+          <p>Školení pro týmy i jednotlivce: od AI mindsetu po praktickou automatizaci a využití agentních workflow.</p>
+          <ul>
+            <li>Workshopy na míru podle role</li>
+            <li>Hands-on scénáře z praxe</li>
+            <li>Adopce AI napříč firmou</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section section-muted" id="spoluprace">
+      <div class="container">
+        <h2>Jak spolupráce probíhá</h2>
+        <div class="steps">
+          <article><span>1</span><h3>Výběr procesu</h3><p>Vybereme use-case (email, web research, interní workflow), kde AI přinese rychlý efekt.</p></article>
+          <article><span>2</span><h3>Návrh pilotu</h3><p>Nastavíme pilot, metriky úspěchu, bezpečnostní limity a kritéria kvality výstupu.</p></article>
+          <article><span>3</span><h3>Stavba workflow</h3><p>Implementace orchestrace v n8n a AI layeru v OpenClaw + potřebné pluginy a adaptéry.</p></article>
+          <article><span>4</span><h3>Human-in-the-loop</h3><p>Schvalování citlivých kroků člověkem, audit log a jasná kontrola nad automatizací.</p></article>
+          <article><span>5</span><h3>Předání a škálování</h3><p>Předání týmu, dokumentace a postupné rozšíření na další procesy.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container" id="projekty">
+      <h2>Projekty</h2>
+      <article class="card card-featured">
+        <p class="eyebrow">Hlavní projekt</p>
+        <h3>janAGI – vrstvená AI orchestrace pro SME</h3>
+        <ul>
+          <li>n8n orchestrace workflow a integrací</li>
+          <li>OpenClaw role/agents pro separaci úloh</li>
+          <li>Pluginy a adaptéry + audit, approvals, traceability</li>
+        </ul>
+        <div class="hero-ctas">
+          <a class="btn" href="https://janagi.org" target="_blank" rel="noopener">Zobrazit janagi.org</a>
+          <a class="btn btn-secondary" href="#kontakt">Domluvit pilot</a>
+        </div>
+      </article>
+    </section>
+
+    <section class="section container" id="nastroje">
+      <h2>Nástroje, které školím a nasazuji</h2>
+      <p class="lead small">Výběr nástroje je až druhý krok – nejdřív řešíme proces, bezpečnost a měřitelné výsledky.</p>
+      <div class="chips">
+        <span>n8n</span><span>OpenClaw</span><span>Claude Code</span><span>Gemini CLI</span><span>Codex</span><span>Make</span><span>Zapier</span>
+      </div>
+    </section>
+
+    <section class="section section-muted" id="cases">
+      <div class="container">
+        <h2>Mini case snippets</h2>
+        <div class="grid three">
+          <article class="card"><h3>Email assistant</h3><p>Draft odpovědí → lidské schválení → odeslání + audit log všech kroků.</p></article>
+          <article class="card"><h3>Web research</h3><p>Dohledání zdrojů → shrnutí → export do CRM/reportu pro obchod nebo management.</p></article>
+          <article class="card"><h3>ERP / CRM workflow</h3><p>Validace změn → approval flow → bezpečný zápis přes API s kontrolou oprávnění.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container" id="kontakt">
+      <h2>Kontakt</h2>
+      <p>Napište mi a během krátkého callu vyhodnotíme, kde dává AI pilot největší smysl.</p>
+      <a class="btn" href="mailto:jan@hezina.cz">jan@hezina.cz</a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© <span id="year"></span> Jan Hezina · hezina.cz</p>
+      <a href="/janagi/">janAGI stránka</a>
     </div>
+  </footer>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content fade-in">
-            <h1>Proměňte svůj potenciál s AI technologiemi</h1>
-            <p>Jsem Jan Hezina, expert na umělou inteligenci a mentor v oblasti AI vývoje. Pomáhám jednotlivcům i firmám osvojit si dovednosti budoucnosti a využít plný potenciál AI nástrojů pro efektivnější práci a inovativní řešení.</p>
-            <a href="#services" class="cta-button">Prozkoumat kurzy</a>
-        </div>
-
-        <!-- AI Brain SVG -->
-        <div class="ai-brain">
-            <svg width="100%" height="100%" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                    <linearGradient id="brainGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stop-color="#6C63FF" />
-                        <stop offset="100%" stop-color="#FF57B9" />
-                    </linearGradient>
-                    <radialGradient id="glowGradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
-                        <stop offset="0%" stop-color="#6C63FF" stop-opacity="0.8" />
-                        <stop offset="100%" stop-color="#6C63FF" stop-opacity="0" />
-                    </radialGradient>
-                </defs>
-                
-                <!-- Glow effect -->
-                <circle cx="250" cy="250" r="200" fill="url(#glowGradient)" opacity="0.3" />
-                
-                <!-- Circuit background -->
-                <g opacity="0.2">
-                    <path d="M100,250 L400,250" stroke="#6C63FF" stroke-width="1" />
-                    <path d="M250,100 L250,400" stroke="#6C63FF" stroke-width="1" />
-                    <circle cx="250" cy="250" r="120" fill="none" stroke="#6C63FF" stroke-width="1" />
-                    <circle cx="250" cy="250" r="80" fill="none" stroke="#6C63FF" stroke-width="1" />
-                    <circle cx="250" cy="250" r="160" fill="none" stroke="#6C63FF" stroke-width="1" />
-                </g>
-                
-                <!-- Brain outline -->
-                <path d="M250,150 C350,150 380,200 380,250 C380,300 350,350 250,350 C150,350 120,300 120,250 C120,200 150,150 250,150 Z" fill="none" stroke="url(#brainGradient)" stroke-width="6" />
-                
-                <!-- Brain nodes -->
-                <circle cx="200" cy="200" r="12" fill="url(#brainGradient)" />
-                <circle cx="300" cy="200" r="12" fill="url(#brainGradient)" />
-                <circle cx="250" cy="220" r="12" fill="url(#brainGradient)" />
-                <circle cx="180" cy="270" r="12" fill="url(#brainGradient)" />
-                <circle cx="320" cy="270" r="12" fill="url(#brainGradient)" />
-                <circle cx="220" cy="300" r="12" fill="url(#brainGradient)" />
-                <circle cx="280" cy="300" r="12" fill="url(#brainGradient)" />
-                
-                <!-- Connections -->
-                <line x1="200" y1="200" x2="250" y2="220" stroke="url(#brainGradient)" stroke-width="2" />
-                <line x1="300" y1="200" x2="250" y2="220" stroke="url(#brainGradient)" stroke-width="2" />
-                <line x1="200" y1="200" x2="180" y2="270" stroke="url(#brainGradient)" stroke-width="2" />
-                <line x1="300" y1="200" x2="320" y2="270" stroke="url(#brainGradient)" stroke-width="2" />
-                <line x1="180" y1="270" x2="220" y2="300" stroke="url(#brainGradient)" stroke-width="2" />
-                <line x1="320" y1="270" x2="280" y2="300" stroke="url(#brainGradient)" stroke-width="2" />
-                <line x1="250" y1="220" x2="220" y2="300" stroke="url(#brainGradient)" stroke-width="2" />
-                <line x1="250" y1="220" x2="280" y2="300" stroke="url(#brainGradient)" stroke-width="2" />
-                
-                <!-- Pulsing node effect -->
-                <circle cx="250" cy="250" r="20" fill="url(#brainGradient)" opacity="0.6">
-                    <animate attributeName="r" values="20;30;20" dur="3s" repeatCount="indefinite" />
-                    <animate attributeName="opacity" values="0.6;0.2;0.6" dur="3s" repeatCount="indefinite" />
-                </circle>
-                
-                <!-- AI text -->
-                <text x="250" y="260" font-family="Arial" font-size="50" font-weight="bold" text-anchor="middle" fill="white">AI</text>
-            </svg>
-        </div>
-        
-        <!-- Glow effects -->
-        <div class="glow-circle primary-glow"></div>
-        <div class="glow-circle secondary-glow"></div>
-    </section>
-
-    <!-- About Section -->
-    <section class="about" id="about">
-        <h2 class="section-title fade-in">O mně</h2>
-        <div class="about-content">
-            <div class="about-text fade-in">
-                <p>S více než 15 lety zkušeností v oblasti IT a vývoje softwaru se specializuji na implementaci AI řešení a vzdělávání v oblasti umělé inteligence. Mým posláním je zpřístupnit moderní technologie všem, kteří chtějí zůstat relevantní v rychle se měnícím technologickém prostředí.</p>
-                <p>Během své kariéry jsem vedl řadu úspěšných projektů, od vývoje složitých systémů až po implementaci AI do stávajících řešení. Kombinuji hluboké technické znalosti s praktickým přístupem, což mi umožňuje vytvářet vzdělávací obsah, který je nejen informativní, ale také okamžitě použitelný v praxi.</p>
-                <p>Jsem nadšený z možností, které AI přináší, a rád své znalosti sdílím prostřednictvím kurzů, workshopů a osobních konzultací. Ať už jste úplný začátečník nebo zkušený vývojář, mým cílem je pomoci vám dosáhnout vašich cílů v oblasti AI.</p>
-                <a href="https://www.linkedin.com/in/jan-hezina-a756662/" target="_blank" class="cta-button">Profil na LinkedIn</a>
-            </div>
-            <div class="about-image fade-in">
-                <svg width="100%" height="350" viewBox="0 0 500 350" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <linearGradient id="profileGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stop-color="#6C63FF" stop-opacity="0.3" />
-                            <stop offset="100%" stop-color="#FF57B9" stop-opacity="0.3" />
-                        </linearGradient>
-                    </defs>
-                    
-                    <!-- Profile background -->
-                    <rect x="0" y="0" width="500" height="350" rx="20" fill="url(#profileGradient)" />
-                    
-                    <!-- Abstract profile representation -->
-                    <circle cx="250" cy="100" r="60" fill="#0F0F1A" stroke="#6C63FF" stroke-width="2" />
-                    <path d="M170,220 C170,180 330,180 330,220 L330,350 L170,350 Z" fill="#0F0F1A" stroke="#6C63FF" stroke-width="2" />
-                    
-                    <!-- Decorative elements -->
-                    <circle cx="220" cy="90" r="10" fill="#6C63FF" opacity="0.8" />
-                    <circle cx="280" cy="90" r="10" fill="#6C63FF" opacity="0.8" />
-                    <path d="M230,130 Q250,150 270,130" stroke="#6C63FF" stroke-width="3" fill="none" />
-                    
-                    <!-- Tech symbols around -->
-                    <text x="100" y="70" font-family="monospace" font-size="14" fill="#00FFCC">&lt;/&gt;</text>
-                    <text x="380" y="70" font-family="monospace" font-size="14" fill="#00FFCC">{AI}</text>
-                    <text x="120" y="280" font-family="monospace" font-size="14" fill="#FF57B9">function()</text>
-                    <text x="350" y="280" font-family="monospace" font-size="14" fill="#FF57B9">model.train()</text>
-                    
-                    <!-- Connecting lines -->
-                    <line x1="120" y1="75" x2="190" y2="100" stroke="#00FFCC" stroke-width="1" opacity="0.5" />
-                    <line x1="380" y1="75" x2="310" y2="100" stroke="#00FFCC" stroke-width="1" opacity="0.5" />
-                    <line x1="140" y1="280" x2="190" y2="250" stroke="#FF57B9" stroke-width="1" opacity="0.5" />
-                    <line x1="350" y1="280" x2="310" y2="250" stroke="#FF57B9" stroke-width="1" opacity="0.5" />
-                </svg>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section class="services" id="services">
-        <h2 class="section-title fade-in">Kurzy AI</h2>
-        <div class="cards">
-            <div class="card fade-in">
-                <div class="card-icon">⭐</div>
-                <h3>AI pro začátečníky</h3>
-                <p>Vstupte do světa umělé inteligence bez předchozích znalostí. Naučíte se základní koncepty, terminologii a praktické využití AI nástrojů pro každodenní práci.</p>
-                <a href="#contact" class="cta-button">Zjistit více</a>
-            </div>
-            <div class="card fade-in">
-                <div class="card-icon">🚀</div>
-                <h3>AI pro pokročilé</h3>
-                <p>Prohlubte své znalosti AI technologií. Kurz pokrývá pokročilé techniky, prompt engineering, fine-tuning modelů a integraci AI do existujících systémů.</p>
-                <a href="#contact" class="cta-button">Zjistit více</a>
-            </div>
-            <div class="card fade-in">
-                <div class="card-icon">💻</div>
-                <h3>Full Stack AI Development</h3>
-                <p>Komplexní kurz zaměřený na vývoj aplikací s využitím AI. Od návrhu API až po implementaci frontend a backend řešení s integrovanou umělou inteligencí.</p>
-                <a href="#contact" class="cta-button">Zjistit více</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Tools Section -->
-    <section class="tools" id="tools">
-        <h2 class="section-title fade-in">Nástroje, které využívám</h2>
-        <div class="tools-grid">
-            <div class="tool-card fade-in">
-                <div class="tool-icon">🧩</div>
-                <h3>VS Code</h3>
-            </div>
-            <div class="tool-card fade-in">
-                <div class="tool-icon">💬</div>
-                <h3>Cline</h3>
-            </div>
-            <div class="tool-card fade-in">
-                <div class="tool-icon">🔄</div>
-                <h3>Continue</h3>
-            </div>
-            <div class="tool-card fade-in">
-                <div class="tool-icon">⚡</div>
-                <h3>Bolt.new</h3>
-            </div>
-            <div class="tool-card fade-in">
-                <div class="tool-icon">🧠</div>
-                <h3>N8N</h3>
-            </div>
-            <div class="tool-card fade-in">
-                <div class="tool-icon">🔍</div>
-                <h3>HuggingFace</h3>
-            </div>
-        </div>
-
-        <h2 class="section-title fade-in" style="margin-top: 5rem;">AI Nástroje, které školím</h2>
-        <div class="tools-grid">
-            <a href="https://github.com/google-gemini/gemini-cli" target="_blank" class="tool-card fade-in">
-                <div class="tool-icon">♊</div>
-                <h3>Gemini CLI</h3>
-            </a>
-            <a href="https://github.com/anthropics/claude-code" target="_blank" class="tool-card fade-in">
-                <div class="tool-icon">📚</div>
-                <h3>Claude Code</h3>
-            </a>
-            <a href="https://github.com/openai/codex" target="_blank" class="tool-card fade-in">
-                <div class="tool-icon">💻</div>
-                <h3>OpenAI Codex</h3>
-            </a>
-            <a href="https://jules.google.com/" target="_blank" class="tool-card fade-in">
-                <div class="tool-icon">✍️</div>
-                <h3>Jules</h3>
-            </a>
-            <a href="https://bolt.new/" target="_blank" class="tool-card fade-in">
-                <div class="tool-icon">⚡</div>
-                <h3>Bolt</h3>
-            </a>
-            <a href="https://replit.com/" target="_blank" class="tool-card fade-in">
-                <div class="tool-icon">🔄</div>
-                <h3>Replit</h3>
-            </a>
-            <a href="https://code.visualstudio.com/" target="_blank" class="tool-card fade-in">
-                <div class="tool-icon">🧩</div>
-                <h3>VS Code</h3>
-            </a>
-            <a href="https://cline.bot/" target="_blank" class="tool-card fade-in">
-                <div class="tool-icon">🤖</div>
-                <h3>CLine</h3>
-            </a>
-            <a href="https://www.continue.dev/" target="_blank" class="tool-card fade-in">
-                <div class="tool-icon">▶️</div>
-                <h3>Continue.dev</h3>
-            </a>
-            <a href="https://mistral.ai/products/mistral-code" target="_blank" class="tool-card fade-in">
-                <div class="tool-icon">🌬️</div>
-                <h3>Mistral Code</h3>
-            </a>
-            <a href="https://github.com/features/copilot" target="_blank" class="tool-card fade-in">
-                <div class="tool-icon">✈️</div>
-                <h3>GitHub Copilot</h3>
-            </a>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="contact-content">
-            <div class="contact-info fade-in">
-                <h2>Pojďme spolupracovat</h2>
-                <p>Ať už máte zájem o individuální konzultaci, firemní školení nebo vývoj AI řešení na míru, jsem připraven vám pomoci. Vyplňte kontaktní formulář nebo mě kontaktujte přímo na sociálních sítích.</p>
-                <div class="social-links">
-                    <a href="https://www.linkedin.com/in/jan-hezina-a756662/" target="_blank" class="social-link">in</a>
-                    <a href="#" class="social-link">@</a>
-                    <a href="#" class="social-link">f</a>
-                </div>
-            </div>
-            <div class="contact-form fade-in">
-                <h3>Napište mi</h3>
-                <form id="contactForm" action="contact.php" method="POST">
-                    <div class="form-group">
-                        <label for="name">Jméno</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">E-mail</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="subject">Předmět</label>
-                        <input type="text" id="subject" name="subject" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Zpráva</label>
-                        <textarea id="message" name="message" required></textarea>
-                    </div>
-                    <button type="submit" class="submit-btn">Odeslat zprávu</button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-logo">Jan Hezina</div>
-            <p class="footer-text">Expert na umělou inteligenci a mentor v oblasti AI vývoje.</p>
-            <div class="footer-links">
-                <a href="#about">O mně</a>
-                <a href="#services">Kurzy</a>
-                <a href="#tools">Nástroje</a>
-                <a href="#contact">Kontakt</a>
-            </div>
-            <p class="copyright">© 2025 Jan Hezina. Všechna práva vyhrazena.</p>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
-    <script src="chatbot-php.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
