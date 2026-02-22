@@ -10,13 +10,14 @@
 <body>
   <header class="site-header">
     <nav class="nav container">
-      <a href="#" class="brand">Jan Hezina</a>
+      <a href="/" class="brand">Jan Hezina</a>
       <button class="menu-toggle" aria-label="Otevřít menu" aria-expanded="false">☰</button>
       <div class="nav-links" id="navLinks">
         <a href="#nabidka">Nabídka</a>
         <a href="#demo">2min demo</a>
-        <a href="#deliverables">Deliverables</a>
-        <a href="#cases">Use-cases</a>
+        <a href="/kurzy.html">Kurzy</a>
+        <a href="/o-mne.html">O mně</a>
+        <a href="/nastroje.html">Nástroje</a>
         <a href="#kontakt" class="btn btn-small">Kontakt</a>
       </div>
     </nav>
@@ -36,7 +37,7 @@
       </ul>
       <div class="hero-ctas">
         <a class="btn" href="#kontakt">Domluvit pilot (20 min)</a>
-        <a class="btn btn-secondary" href="#kontakt">Chci školení</a>
+        <a class="btn btn-secondary" href="/kurzy.html">Chci školení</a>
         <a class="link-cta" href="https://janagi.org" target="_blank" rel="noopener">janAGI (open-source projekt) ↗</a>
       </div>
     </section>
@@ -52,6 +53,14 @@
           <li><strong>Předání:</strong> runbook, checklist, doporučení pro škálování.</li>
         </ol>
       </div>
+    </section>
+
+    <section class="section container" id="mikrobio">
+      <h2>Krátce o mně</h2>
+      <article class="card">
+        <p>15+ let v IT (integrace, workflow, delivery). Poslední roky stavím AI vrstvy nad procesy – tak, aby byly provozovatelné, auditovatelné a bezpečné. Učím týmy i jednotlivce AI používat prakticky: od mindsetu po automatizaci.</p>
+        <p class="section-link"><a class="link-cta" href="/o-mne.html">Zobrazit celý profil ↗</a></p>
+      </article>
     </section>
 
     <section class="section container" id="demo">
@@ -90,6 +99,7 @@
               <li>Governance a pravidla používání AI</li>
             </ul>
             <p><strong>Rozsah:</strong> od 1 dne (online / onsite).</p>
+            <p class="section-link"><a class="link-cta" href="/kurzy.html">Detail kurzů ↗</a></p>
           </article>
           <article class="card">
             <h3>Delivery partner (retainer)</h3>
@@ -197,7 +207,12 @@
   <footer class="footer">
     <div class="container">
       <p>© <span id="year"></span> Jan Hezina · hezina.cz</p>
-      <a href="/janagi/">janAGI stránka</a>
+      <div class="footer-links">
+        <a href="/kurzy.html">Kurzy</a>
+        <a href="/o-mne.html">O mně</a>
+        <a href="/nastroje.html">Nástroje</a>
+        <a href="/janagi/">janAGI stránka</a>
+      </div>
     </div>
   </footer>
 

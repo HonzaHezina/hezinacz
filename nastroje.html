@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Aktuální AI stack Jana Heziny: příklady nástrojů pro coding, automatizace, orchestraci a governance.">
+  <title>Nástroje | Jan Hezina</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav container">
+      <a href="/" class="brand">Jan Hezina</a>
+      <button class="menu-toggle" aria-label="Otevřít menu" aria-expanded="false">☰</button>
+      <div class="nav-links" id="navLinks">
+        <a href="/">AI piloty</a>
+        <a href="/kurzy.html">Kurzy</a>
+        <a href="/o-mne.html">O mně</a>
+        <a href="#kontakt" class="btn btn-small">Kontakt</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero container">
+      <p class="eyebrow">Stack přehled</p>
+      <h1>Aktuální stack (příklady – nástroje se mění, principy zůstávají).</h1>
+      <p class="lead">Vybírám nástroje podle cíle firmy, bezpečnosti a provozovatelnosti. Níže je orientační přehled toho, se čím typicky pracuji při delivery i školení.</p>
+    </section>
+
+    <section class="section section-muted">
+      <div class="container grid two">
+        <article class="card">
+          <h2>AI coding</h2>
+          <ul>
+            <li>Claude Code</li>
+            <li>Codex</li>
+            <li>Gemini CLI</li>
+            <li>GitHub Copilot</li>
+            <li>Continue / Cline</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h2>Automatizace</h2>
+          <ul>
+            <li>n8n</li>
+            <li>Make</li>
+            <li>Zapier</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h2>Orchestrace</h2>
+          <ul>
+            <li>OpenClaw</li>
+            <li>janAGI layer</li>
+            <li>Custom approvals workflow</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h2>Knowledge / RAG</h2>
+          <ul>
+            <li>Postgres / pgvector</li>
+            <li>Dokumentové báze a interní wiki</li>
+            <li>Audit logy a trace data</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section container" id="kontakt">
+      <h2>Potřebujete zvolit stack pro váš tým?</h2>
+      <p>Pomůžu vybrat pragmatickou kombinaci nástrojů bez zbytečného lock-inu.</p>
+      <div class="hero-ctas">
+        <a class="btn" href="mailto:jan@hezina.cz?subject=Konzultace%20AI%20stacku">Domluvit konzultaci</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© <span id="year"></span> Jan Hezina · hezina.cz</p>
+      <div class="footer-links">
+        <a href="/">AI piloty</a>
+        <a href="/kurzy.html">Kurzy</a>
+        <a href="/o-mne.html">O mně</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
