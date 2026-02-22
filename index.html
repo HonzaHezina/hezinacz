@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Jan Hezina – AI konzultace, piloty pro firmy, kurzy a projekt janAGI.">
-  <title>Jan Hezina | AI konzultace, piloty a kurzy</title>
+  <meta name="description" content="Jan Hezina – AI piloty pro firmy: řízeně, auditovatelně a bez vendor lock-inu.">
+  <title>Jan Hezina | AI piloty, workshopy a delivery partner</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -13,104 +13,169 @@
       <a href="#" class="brand">Jan Hezina</a>
       <button class="menu-toggle" aria-label="Otevřít menu" aria-expanded="false">☰</button>
       <div class="nav-links" id="navLinks">
-        <a href="#sluzby">Služby</a>
-        <a href="#spoluprace">Jak spolupráce probíhá</a>
-        <a href="#projekty">Projekty</a>
-        <a href="#nastroje">Nástroje</a>
+        <a href="#nabidka">Nabídka</a>
+        <a href="#demo">2min demo</a>
+        <a href="#deliverables">Deliverables</a>
+        <a href="#cases">Use-cases</a>
         <a href="#kontakt" class="btn btn-small">Kontakt</a>
       </div>
     </nav>
   </header>
 
+  <a class="sticky-cta" href="#kontakt">Domluvit pilot</a>
+
   <main>
     <section class="hero container" id="hero">
       <p class="eyebrow">AI expert · mentor · delivery partner</p>
-      <h1>Pomáhám firmám zavádět AI do reálných procesů.</h1>
-      <p class="lead">Řízeně, auditovatelně a bez vendor lock-inu. Pro rychlé piloty stavím vrstvenou orchestraci (n8n + OpenClaw + konektory) pod značkou janAGI.</p>
+      <h1>AI do procesů. Ne do prezentací.</h1>
+      <p class="lead">Dodám pilot, který reálně zrychlí práci týmu – řízeně (schvalování), auditovatelně (logy), bez vendor lock-inu (vyměnitelný model i nástroje).</p>
+      <ul class="hero-benefits">
+        <li>Vidíte, co AI dělá (workflow + logy + kontrola kroků)</li>
+        <li>Citlivé kroky jdou přes human-in-the-loop schválení</li>
+        <li>Vrstvená architektura: integrace zvlášť, „mozek“ zvlášť, paměť zvlášť</li>
+      </ul>
       <div class="hero-ctas">
-        <a class="btn" href="#kontakt">Pilot pro firmu</a>
-        <a class="btn btn-secondary" href="#sluzby">Vzdělávání a kurzy</a>
+        <a class="btn" href="#kontakt">Domluvit pilot (20 min call)</a>
+        <a class="btn btn-secondary" href="#demo">Ukázat demo workflow (2 min)</a>
         <a class="link-cta" href="https://janagi.org" target="_blank" rel="noopener">janAGI (open-source projekt) ↗</a>
       </div>
     </section>
 
-    <section class="section container" id="sluzby">
-      <h2>Dvě hlavní cesty spolupráce</h2>
-      <div class="grid two">
-        <article class="card">
-          <h3>Konzultace a pilot pro firmu</h3>
-          <p>Najdeme konkrétní proces, nastavíme měřitelné cíle a dodáme funkční pilot, který má reálný dopad na výkon týmu.</p>
-          <ul>
-            <li>AI workflow pro interní procesy</li>
-            <li>Bezpečnost, governance, audit</li>
-            <li>Rychlé nasazení bez velké IT změny</li>
-          </ul>
-        </article>
-        <article class="card">
-          <h3>Vzdělávání a kurzy</h3>
-          <p>Školení pro týmy i jednotlivce: od AI mindsetu po praktickou automatizaci a využití agentních workflow.</p>
-          <ul>
-            <li>Workshopy na míru podle role</li>
-            <li>Hands-on scénáře z praxe</li>
-            <li>Adopce AI napříč firmou</li>
-          </ul>
-        </article>
-      </div>
-    </section>
-
-    <section class="section section-muted" id="spoluprace">
-      <div class="container">
-        <h2>Jak spolupráce probíhá</h2>
-        <div class="steps">
-          <article><span>1</span><h3>Výběr procesu</h3><p>Vybereme use-case (email, web research, interní workflow), kde AI přinese rychlý efekt.</p></article>
-          <article><span>2</span><h3>Návrh pilotu</h3><p>Nastavíme pilot, metriky úspěchu, bezpečnostní limity a kritéria kvality výstupu.</p></article>
-          <article><span>3</span><h3>Stavba workflow</h3><p>Implementace orchestrace v n8n a AI layeru v OpenClaw + potřebné pluginy a adaptéry.</p></article>
-          <article><span>4</span><h3>Human-in-the-loop</h3><p>Schvalování citlivých kroků člověkem, audit log a jasná kontrola nad automatizací.</p></article>
-          <article><span>5</span><h3>Předání a škálování</h3><p>Předání týmu, dokumentace a postupné rozšíření na další procesy.</p></article>
+    <section class="section container" id="demo">
+      <h2>Jak vypadá AI pilot v praxi (2 min)</h2>
+      <article class="card flow-card">
+        <div class="flow-diagram" aria-label="Diagram AI workflow">
+          <span>Telegram / Email</span>
+          <span>n8n workflow</span>
+          <span>OpenClaw agent</span>
+          <span>Schválení</span>
+          <span>Zápis + audit log</span>
         </div>
-      </div>
-    </section>
-
-    <section class="section container" id="projekty">
-      <h2>Projekty</h2>
-      <article class="card card-featured">
-        <p class="eyebrow">Hlavní projekt</p>
-        <h3>janAGI – vrstvená AI orchestrace pro SME</h3>
-        <ul>
-          <li>n8n orchestrace workflow a integrací</li>
-          <li>OpenClaw role/agents pro separaci úloh</li>
-          <li>Pluginy a adaptéry + audit, approvals, traceability</li>
-        </ul>
-        <div class="hero-ctas">
-          <a class="btn" href="https://janagi.org" target="_blank" rel="noopener">Zobrazit janagi.org</a>
-          <a class="btn btn-secondary" href="#kontakt">Domluvit pilot</a>
-        </div>
+        <p><strong>Ukázkový průchod:</strong> Email assistant: návrh odpovědi → schválení odpovědnou osobou → odeslání + auditní záznam kroků a rozhodnutí.</p>
       </article>
     </section>
 
-    <section class="section container" id="nastroje">
-      <h2>Nástroje, které školím a nasazuji</h2>
-      <p class="lead small">Výběr nástroje je až druhý krok – nejdřív řešíme proces, bezpečnost a měřitelné výsledky.</p>
-      <div class="chips">
-        <span>n8n</span><span>OpenClaw</span><span>Claude Code</span><span>Gemini CLI</span><span>Codex</span><span>Make</span><span>Zapier</span>
+    <section class="section section-muted" id="nabidka">
+      <div class="container">
+        <h2>Nabídka spolupráce</h2>
+        <div class="grid three">
+          <article class="card">
+            <h3>AI Pilot Sprint (pro firmu)</h3>
+            <ul>
+              <li>Výběr procesu + metriky</li>
+              <li>Implementace workflow (n8n) + agent layer (OpenClaw)</li>
+              <li>Schvalování + audit log</li>
+              <li>Předání + runbook</li>
+            </ul>
+            <p><strong>Rozsah:</strong> od 2–4 týdnů (upřesníme na callu).</p>
+          </article>
+          <article class="card">
+            <h3>AI Adoption Workshop (tým)</h3>
+            <ul>
+              <li>Role-based scénáře (obchod, backoffice, IT)</li>
+              <li>Praktické ukázky automatizací</li>
+              <li>Governance a pravidla používání AI</li>
+            </ul>
+            <p><strong>Rozsah:</strong> od 1 dne (online / onsite).</p>
+          </article>
+          <article class="card">
+            <h3>Delivery partner (retainer)</h3>
+            <ul>
+              <li>1–2 procesy měsíčně</li>
+              <li>Průběžné ladění kvality, nákladů a bezpečnosti</li>
+              <li>Prioritizace backlogu a governance</li>
+            </ul>
+            <p><strong>Spolupráce:</strong> měsíční režim, kapacita dle plánu.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container" id="deliverables">
+      <h2>Co přesně dodám (deliverables pilotu)</h2>
+      <div class="grid two">
+        <article class="card">
+          <ul>
+            <li>n8n workflow (export) + popis uzlů</li>
+            <li>OpenClaw agent config (role, policy, nástroje)</li>
+            <li>Audit log / trace (kam se ukládá, co se loguje)</li>
+          </ul>
+        </article>
+        <article class="card">
+          <ul>
+            <li>Runbook (provoz, restart, limity, fallback)</li>
+            <li>Checklist bezpečnosti (kde se data pohybují)</li>
+            <li>Doporučení pro škálování na další procesy</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section section-muted" id="fit">
+      <div class="container grid two">
+        <article class="card">
+          <h2>Pro koho to je</h2>
+          <ul>
+            <li>SME firmy s 1–3 klíčovými procesy na automatizaci</li>
+            <li>Týmy, které chtějí AI, ale potřebují kontrolu a audit</li>
+            <li>Organizace, kde je jasný owner procesu</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h2>Kdy se to nehodí</h2>
+          <ul>
+            <li>Když chcete „chatbota pro všechno“ bez procesního návrhu</li>
+            <li>Když není owner procesu nebo nikdo nechce schvalovat</li>
+            <li>Když není možné definovat cílové metriky pilotu</li>
+          </ul>
+        </article>
       </div>
     </section>
 
     <section class="section section-muted" id="cases">
       <div class="container">
-        <h2>Mini case snippets</h2>
+        <h2>Use-cases podle oddělení</h2>
         <div class="grid three">
-          <article class="card"><h3>Email assistant</h3><p>Draft odpovědí → lidské schválení → odeslání + audit log všech kroků.</p></article>
-          <article class="card"><h3>Web research</h3><p>Dohledání zdrojů → shrnutí → export do CRM/reportu pro obchod nebo management.</p></article>
-          <article class="card"><h3>ERP / CRM workflow</h3><p>Validace změn → approval flow → bezpečný zápis přes API s kontrolou oprávnění.</p></article>
+          <article class="card"><h3>Obchod</h3><p>Web research → CRM summary pro rychlejší follow-up.</p></article>
+          <article class="card"><h3>Podpora</h3><p>Triage ticketů → návrh odpovědi → schválení před odesláním.</p></article>
+          <article class="card"><h3>Backoffice</h3><p>Faktury/objednávky → validace → zápis přes API s kontrolou.</p></article>
+          <article class="card"><h3>Management</h3><p>Týdenní reporty z dat → shrnutí + zdroje pro rozhodnutí.</p></article>
+          <article class="card"><h3>HR</h3><p>Screening CV → doporučení kandidátů + důvody.</p></article>
+          <article class="card"><h3>IT</h3><p>Change request → kontrola rizik → approval flow.</p></article>
         </div>
+      </div>
+    </section>
+
+    <section class="section container" id="duveryhodnost">
+      <h2>Důvěryhodnost a reference</h2>
+      <p class="lead small">15+ let v IT delivery, integracích a zavádění digitálních workflow do firemních procesů. Stavím na otevřené architektuře a prokazatelném provozu.</p>
+      <div class="grid two">
+        <article class="card">
+          <h3>Reference (anonymizovaně)</h3>
+          <p>„Výrobní SME (40 lidí): pilot asistované e-mailové podpory zkrátil čas zpracování požadavků o ~35 % při zachování schvalování kritických odpovědí.“</p>
+        </article>
+        <article class="card card-featured">
+          <h3>Veřejný projekt</h3>
+          <p>janAGI: n8n + OpenClaw + konektory + governance vrstva pro auditovatelné AI workflow.</p>
+          <a class="link-cta" href="https://janagi.org" target="_blank" rel="noopener">Zobrazit janagi.org ↗</a>
+        </article>
       </div>
     </section>
 
     <section class="section container" id="kontakt">
       <h2>Kontakt</h2>
       <p>Napište mi a během krátkého callu vyhodnotíme, kde dává AI pilot největší smysl.</p>
-      <a class="btn" href="mailto:jan@hezina.cz">jan@hezina.cz</a>
+      <div class="hero-ctas">
+        <a class="btn" href="mailto:jan@hezina.cz?subject=Chci%20pilot%20AI%20procesu">Chci pilot</a>
+        <a class="btn btn-secondary" href="mailto:jan@hezina.cz?subject=Chci%20AI%20školení%20pro%20tým">Chci školení</a>
+      </div>
+      <div class="card prep-card">
+        <h3>Co potřebuju od vás před callem</h3>
+        <ul>
+          <li>Kdo je owner procesu</li>
+          <li>Jaký systém se napojuje (CRM/ERP/helpdesk/...) </li>
+        </ul>
+      </div>
     </section>
   </main>
 
