@@ -109,6 +109,39 @@ ul { padding-left: 1.1rem; color: var(--muted); }
   text-align: center;
   font-size: 0.9rem;
 }
+
+.contact-form {
+  margin-top: 1rem;
+  max-width: 40rem;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.7rem 0.8rem;
+  background: rgba(11, 16, 32, 0.75);
+  color: var(--text);
+  font: inherit;
+}
+
+.contact-form textarea {
+  min-height: 8rem;
+  resize: vertical;
+}
+
+.contact-form #status {
+  min-height: 1.5rem;
+  color: var(--muted);
+}
+
+.contact-honeypot {
+  display: none;
+}
+
 .prep-card { margin-top: 1rem; max-width: 40rem; }
 
 .footer { border-top: 1px solid rgba(255,255,255,0.08); padding: 1.5rem 0 2.2rem; }
