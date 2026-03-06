@@ -35,22 +35,22 @@ const contactForm = document.getElementById('contactForm');
 const statusElement = document.getElementById('status');
 
 if (contactForm && statusElement) {
-  const ENDPOINT = 'https://n8n.janagi.org/webhook-test/contact';
+  const ENDPOINT = 'https://n8n.janagi.org/webhook/contact';
 
   contactForm.addEventListener('submit', async (event) => {
     event.preventDefault();
     statusElement.textContent = 'Odesílám…';
 
     const formData = new FormData(contactForm);
-    if (formData.get('website')) return;
-
-    const payload = Object.fromEntries(formData.entries());
+    if (formData.get('website')) {
+      statusElement.textContent = '';
+      return;
+    }
 
     try {
       const response = await fetch(ENDPOINT, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
+        body: formData,
       });
 
       if (!response.ok) throw new Error('Bad response');
