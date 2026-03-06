@@ -35,7 +35,7 @@ const contactForm = document.getElementById('contactForm');
 const statusElement = document.getElementById('status');
 
 if (contactForm && statusElement) {
-  const ENDPOINT = 'https://n8n.janagi.org/webhook/contact';
+  const ENDPOINT = 'https://n8n.janagi.org/webhook-test/contact';
 
   contactForm.addEventListener('submit', async (event) => {
     event.preventDefault();
