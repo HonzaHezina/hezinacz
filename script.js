@@ -35,10 +35,7 @@ const contactForm = document.getElementById('contactForm');
 const statusElement = document.getElementById('status');
 
 if (contactForm && statusElement) {
-  const isProd = window.location.hostname === 'hezina.cz' || window.location.hostname === 'www.hezina.cz';
-  const ENDPOINT = isProd
-    ? 'https://n8n.janagi.org/webhook/a45b6308-f437-42e2-8399-5cc0aae50b9c'
-    : 'https://n8n.janagi.org/webhook-test/a45b6308-f437-42e2-8399-5cc0aae50b9c';
+  const ENDPOINT = 'https://n8n.janagi.org/webhook/contact';
 
   contactForm.addEventListener('submit', async (event) => {
     event.preventDefault();
