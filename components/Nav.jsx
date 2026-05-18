@@ -22,9 +22,9 @@ function Nav({ tweaks, theme, setTheme }) {
   }, [open]);
 
   const links = [
-    ['#magie', 'Filozofie'],
-    ['#prinos', 'Co dostanete'],
-    ['#janagi', 'janAGI'],
+    ['#sluzby', 'Co nabízím'],
+    ['#den', 'Jak to vypadá'],
+    ['#diagnostika', 'Je to pro vás?'],
     ['#cena', 'Cena'],
     ['#kontakt', 'Kontakt'],
   ];

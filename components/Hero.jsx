@@ -74,11 +74,15 @@ function Hero({ tweaks }) {
 
           <div className="hero__ctas">
             <a href="#kontakt" className="btn btn--primary btn--lg">
-              Domluvit hovor (20 min)
+              Domluvit hovor zdarma (20 min)
               <span className="arrow">→</span>
             </a>
-            <a href="#try" className="btn btn--ghost btn--lg">Zkusit nanečisto ↓</a>
+            <a href="#diagnostika" className="btn btn--ghost btn--lg">Nejsem si jistý ↓</a>
           </div>
+
+          <p className="hero__microcopy">
+            Ozvu se do 24 hodin. Pokud to u vás nemá smysl, řeknu vám to rovnou.
+          </p>
 
           <div className="hero__meta">
             <span><span className="check">✓</span> Vaše data zůstávají vaše</span>
