@@ -72,9 +72,9 @@ function Contact() {
                 <span>info@hezina.cz</span>
                 <span className="arrow">→</span>
               </a>
-              <a className="contact-card__row" href="tel:+420000000000">
+              <a className="contact-card__row" href="tel:+420722109060">
                 <span className="label">Telefon</span>
-                <span>+420 ___ ___ ___</span>
+                <span>+420 722 10 90 60</span>
                 <span className="arrow">→</span>
               </a>
               <a className="contact-card__row" href="https://www.linkedin.com/in/jan-hezina/" target="_blank" rel="noopener">
