@@ -1,10 +1,14 @@
 // Contact.jsx — final CTA + form
 const { useState: useStateContact } = React;
 
+const CONTACT_ENDPOINT = 'https://n8n.janagi.org/webhook/contact';
+
 function Contact() {
-  const [form, setForm] = useState({ name: '', email: '', msg: '' });
+  const [form, setForm] = useState({ name: '', email: '', msg: '', website: '' });
   const [errs, setErrs] = useState({});
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [sendErr, setSendErr] = useState('');
 
   function update(k, v) {
     setForm(f => ({ ...f, [k]: v }));
@@ -21,10 +25,28 @@ function Contact() {
     return Object.keys(e).length === 0;
   }
 
-  function submit(ev) {
+  async function submit(ev) {
     ev.preventDefault();
     if (!validate()) return;
-    setSent(true);
+    // honeypot — bot detection
+    if (form.website) return;
+    setSending(true);
+    setSendErr('');
+    try {
+      const fd = new FormData();
+      fd.append('site_id', 'hezina');
+      fd.append('name', form.name);
+      fd.append('email', form.email);
+      fd.append('message', form.msg);
+      fd.append('website', form.website);
+      const res = await fetch(CONTACT_ENDPOINT, { method: 'POST', body: fd });
+      if (!res.ok) throw new Error('bad response');
+      setSent(true);
+    } catch {
+      setSendErr('Odeslání se nepovedlo. Zkuste to prosím znovu nebo napište přímo na info@hezina.cz');
+    } finally {
+      setSending(false);
+    }
   }
 
   return (
@@ -106,10 +128,21 @@ function Contact() {
                   />
                   {errs.msg && <div className="err">{errs.msg}</div>}
                 </div>
-                <button type="submit" className="btn btn--blue btn--lg" style={{width: '100%', marginTop: 8}}>
-                  Domluvit hovor (20 min)
-                  <span className="arrow">→</span>
+                {/* honeypot — hidden from real users */}
+                <input
+                  type="text"
+                  name="website"
+                  value={form.website}
+                  onChange={e => update('website', e.target.value)}
+                  tabIndex={-1}
+                  autoComplete="off"
+                  style={{position: 'absolute', left: '-9999px', opacity: 0, pointerEvents: 'none'}}
+                  aria-hidden="true"
+                />
+                <button type="submit" className="btn btn--blue btn--lg" style={{width: '100%', marginTop: 8}} disabled={sending}>
+                  {sending ? 'Odesílám…' : <>Domluvit hovor (20 min)<span className="arrow">→</span></>}
                 </button>
+                {sendErr && <p style={{fontSize: 13, color: 'oklch(0.58 0.18 25)', marginTop: 6, textAlign: 'center'}}>{sendErr}</p>}
                 <p style={{fontSize: 12, color: 'oklch(0.66 0.014 250)', marginTop: 4, textAlign: 'center'}}>
                   Odpovídám obvykle do 24 hodin.
                 </p>
